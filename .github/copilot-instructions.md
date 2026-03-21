@@ -36,6 +36,7 @@ This is a modern, responsive resume website featuring:
 
 ```bash
 npm run dev    # Start development server
+npm audit        # Check for vulnerabilities
 npm run build  # Build for production  
 npm run start  # Start production server
 ```
