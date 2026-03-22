@@ -12,6 +12,7 @@ export interface PersonalInfo {
 export interface Experience {
   title: string;
   company: string;
+  companyUrl?: string;
   location: string;
   startDate: string;
   endDate: string;
@@ -22,6 +23,7 @@ export interface Experience {
 export interface Education {
   degree: string;
   institution: string;
+  institutionUrl?: string;
   location: string;
   graduatedDate: string;
   gpa?: string;
@@ -45,4 +47,16 @@ export interface Project {
   github?: string;
   demo?: string;
   highlights: string[];
+}
+
+export interface Publication {
+  title: string;
+  authors: string[];
+  journal?: string;
+  conference?: string;
+  year: string;
+  doi?: string;
+  url?: string;
+  description: string;
+  type: 'journal' | 'conference' | 'workshop' | 'preprint' | 'other';
 }

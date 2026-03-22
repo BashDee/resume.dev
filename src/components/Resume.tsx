@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { personalInfo, aboutText, experiences, education, skills, achievements, projects } from '@/data/resumeData';
+import { personalInfo, aboutText, experiences, education, skills, achievements, projects, publications } from '@/data/resumeData';
 import { Card, CardHeader, CardContent, CardTitle } from '@/components/ui/Card';
 
 const Resume: React.FC = () => {
@@ -37,6 +37,7 @@ const Resume: React.FC = () => {
     { id: 'education', label: 'Education' },
     { id: 'skills', label: 'Skills' },
     { id: 'achievements', label: 'Achievements' },
+    { id: 'publications', label: 'Publications' },
     { id: 'projects', label: 'Projects' }
   ];
 
@@ -47,11 +48,11 @@ const Resume: React.FC = () => {
         <div className="w-80 min-h-screen bg-navy-800/30 backdrop-blur-sm border-r border-navy-700/50 p-6 fixed">
           {/* Profile Section */}
           <div className="text-center mb-8">
-            <div className="w-24 h-24 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mb-4 flex items-center justify-center">
-              <span className="text-2xl font-bold text-white">
-                {personalInfo.name.split(' ').map(n => n[0]).join('')}
-              </span>
-            </div>
+            <img 
+              src="profile.jpg" 
+              alt={personalInfo.name}
+              className="w-24 h-24 rounded-full mx-auto mb-4 object-cover border-2 border-blue-500 shadow-lg shadow-blue-500/20"
+            />
             <h1 className="text-2xl font-bold text-white mb-1">{personalInfo.name}</h1>
             <p className="text-lg text-blue-400 mb-4">{personalInfo.title}</p>
             
@@ -137,7 +138,20 @@ const Resume: React.FC = () => {
                       <div className="flex items-start justify-between">
                         <div>
                           <CardTitle className="text-blue-400">{exp.title}</CardTitle>
-                          <p className="text-lg font-medium text-gray-300 mt-1">{exp.company}</p>
+                          <p className="text-lg font-medium text-gray-300 mt-1">
+                            {exp.companyUrl ? (
+                              <a 
+                                href={exp.companyUrl} 
+                                target="_blank" 
+                                rel="noopener noreferrer" 
+                                className="text-gray-300 hover:text-blue-400 transition-colors hover:underline"
+                              >
+                                {exp.company}
+                              </a>
+                            ) : (
+                              exp.company
+                            )}
+                          </p>
                           <p className="text-sm text-gray-400">{exp.location}</p>
                         </div>
                         <div className="text-right">
@@ -193,7 +207,20 @@ const Resume: React.FC = () => {
                             <div className="flex justify-between items-start mb-2">
                               <div>
                                 <CardTitle className="text-blue-400 text-xl">{edu.degree}</CardTitle>
-                                <p className="text-lg font-medium text-white mt-1">{edu.institution}</p>
+                                <p className="text-lg font-medium text-white mt-1">
+                                  {edu.institutionUrl ? (
+                                    <a 
+                                      href={edu.institutionUrl} 
+                                      target="_blank" 
+                                      rel="noopener noreferrer" 
+                                      className="text-white hover:text-blue-400 transition-colors hover:underline"
+                                    >
+                                      {edu.institution}
+                                    </a>
+                                  ) : (
+                                    edu.institution
+                                  )}
+                                </p>
                               </div>
                               <div className="text-right">
                                 <p className="text-sm font-medium text-blue-400">
@@ -273,6 +300,71 @@ const Resume: React.FC = () => {
               </div>
             </section>
 
+            {/* Publications Section */}
+            <section id="publications">
+              <div className="mb-6">
+                <h2 className="text-3xl font-bold text-white">Publications</h2>
+                <div className="w-20 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mt-2"></div>
+              </div>
+              <div className="space-y-6">
+                {publications.map((publication, index) => (
+                  <Card key={`publication-${publication.title.substring(0,20)}-${index}`}>
+                    <CardHeader>
+                      <div className="flex items-start justify-between">
+                        <div className="flex-1">
+                          <CardTitle className="text-blue-400 text-lg leading-tight mb-2">
+                            {publication.url ? (
+                              <a href={publication.url} target="_blank" rel="noopener noreferrer" className="hover:text-blue-300 transition-colors">
+                                {publication.title}
+                              </a>
+                            ) : (
+                              publication.title
+                            )}
+                          </CardTitle>
+                          <div className="text-gray-300 text-sm mb-1">
+                            <span className="font-medium">Authors:</span> {publication.authors.join(', ')}
+                          </div>
+                          <div className="text-gray-400 text-sm">
+                            {publication.journal && (
+                              <span>{publication.journal} • </span>
+                            )}
+                            {publication.conference && (
+                              <span>{publication.conference} • </span>
+                            )}
+                            <span>{publication.year}</span>
+                            {publication.doi && (
+                              <span> • DOI: <a 
+                                href={`https://doi.org/${publication.doi}`} 
+                                target="_blank" 
+                                rel="noopener noreferrer" 
+                                className="text-blue-400 hover:text-blue-300 transition-colors hover:underline"
+                              >
+                                {publication.doi}
+                              </a></span>
+                            )}
+                          </div>
+                        </div>
+                        <div className="ml-4">
+                          <span className={`px-2 py-1 text-xs rounded-full ${
+                            publication.type === 'journal' ? 'bg-green-600/20 text-green-300' :
+                            publication.type === 'conference' ? 'bg-purple-600/20 text-purple-300' :
+                            publication.type === 'workshop' ? 'bg-orange-600/20 text-orange-300' :
+                            publication.type === 'preprint' ? 'bg-yellow-600/20 text-yellow-300' :
+                            'bg-gray-600/20 text-gray-300'
+                          }`}>
+                            {publication.type.charAt(0).toUpperCase() + publication.type.slice(1)}
+                          </span>
+                        </div>
+                      </div>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-gray-300 text-sm leading-relaxed">{publication.description}</p>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+            </section>
+
             {/* Projects Section */}
             <section id="projects">
               <div className="mb-6">
@@ -283,7 +375,29 @@ const Resume: React.FC = () => {
                 {projects.map((project, index) => (
                   <Card key={`project-${project.title}-${index}`}>
                     <CardHeader>
-                      <CardTitle className="text-blue-400">{project.title}</CardTitle>
+                      <div className="flex items-center gap-2">
+                        <CardTitle className="text-blue-400 flex-1">
+                          {project.github ? (
+                            <a 
+                              href={project.github} 
+                              target="_blank" 
+                              rel="noopener noreferrer" 
+                              className="hover:text-blue-300 transition-colors flex items-center gap-2 group"
+                            >
+                              <span>{project.title}</span>
+                              <svg 
+                                className="w-4 h-4 opacity-60 group-hover:opacity-100 transition-opacity" 
+                                fill="currentColor" 
+                                viewBox="0 0 20 20"
+                              >
+                                <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
+                              </svg>
+                            </a>
+                          ) : (
+                            project.title
+                          )}
+                        </CardTitle>
+                      </div>
                     </CardHeader>
                     <CardContent>
                       <p className="text-gray-300 text-sm leading-relaxed mb-4">{project.description}</p>
