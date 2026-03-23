@@ -136,23 +136,32 @@ const Resume: React.FC = () => {
                   <Card key={`exp-${exp.company}-${index}`}>
                     <CardHeader>
                       <div className="flex items-start justify-between">
-                        <div>
-                          <CardTitle className="text-blue-400">{exp.title}</CardTitle>
-                          <p className="text-lg font-medium text-gray-300 mt-1">
-                            {exp.companyUrl ? (
-                              <a 
-                                href={exp.companyUrl} 
-                                target="_blank" 
-                                rel="noopener noreferrer" 
-                                className="text-gray-300 hover:text-blue-400 transition-colors hover:underline"
-                              >
-                                {exp.company}
-                              </a>
-                            ) : (
-                              exp.company
-                            )}
-                          </p>
-                          <p className="text-sm text-gray-400">{exp.location}</p>
+                        <div className="flex items-start gap-4">
+                          {exp.logo && (
+                            <img 
+                              src={exp.logo} 
+                              alt={`${exp.company} logo`}
+                              className="w-12 h-12 object-contain rounded-lg bg-white/10 p-1 flex-shrink-0"
+                            />
+                          )}
+                          <div>
+                            <CardTitle className="text-blue-400">{exp.title}</CardTitle>
+                            <p className="text-lg font-medium text-gray-300 mt-1">
+                              {exp.companyUrl ? (
+                                <a 
+                                  href={exp.companyUrl} 
+                                  target="_blank" 
+                                  rel="noopener noreferrer" 
+                                  className="text-gray-300 hover:text-blue-400 transition-colors hover:underline"
+                                >
+                                  {exp.company}
+                                </a>
+                              ) : (
+                                exp.company
+                              )}
+                            </p>
+                            <p className="text-sm text-gray-400">{exp.location}</p>
+                          </div>
                         </div>
                         <div className="text-right">
                           <p className="text-sm font-medium text-blue-400">{exp.startDate} - {exp.endDate}</p>
@@ -204,36 +213,50 @@ const Resume: React.FC = () => {
                       <div className="ml-16 flex-1">
                         <Card className="border-l-4 border-l-blue-500">
                           <CardHeader>
-                            <div className="flex justify-between items-start mb-2">
-                              <div>
-                                <CardTitle className="text-blue-400 text-xl">{edu.degree}</CardTitle>
-                                <p className="text-lg font-medium text-white mt-1">
-                                  {edu.institutionUrl ? (
-                                    <a 
-                                      href={edu.institutionUrl} 
-                                      target="_blank" 
-                                      rel="noopener noreferrer" 
-                                      className="text-white hover:text-blue-400 transition-colors hover:underline"
-                                    >
-                                      {edu.institution}
-                                    </a>
-                                  ) : (
-                                    edu.institution
-                                  )}
-                                </p>
+                            <div className="flex items-start justify-between">
+                              <div className="flex items-start gap-4">
+                                {edu.logo && (
+                                  <img 
+                                    src={edu.logo} 
+                                    alt={`${edu.institution} logo`}
+                                    
+                                    className="w-12 h-12 object-contain rounded-lg bg-white/10 p-1 flex-shrink-0"
+                                  />
+                                )}
+                                  
                               </div>
-                              <div className="text-right">
-                                <p className="text-sm font-medium text-blue-400">
-                                {edu.graduatedDate 
-                                    ? new Date(edu.graduatedDate) > new Date() 
-                                    ? `Expected Graduation: ${edu.graduatedDate}`
-                                    : `Graduated: ${edu.graduatedDate}`
-                                    : 'Graduation Date N/A'
-                                }
-                                </p>
+                              <div className="flex-1">
+                                  <div className="flex justify-between items-start">
+                                    <div>
+                                      <CardTitle className="text-blue-400 text-xl">{edu.degree}</CardTitle>
+                                      <p className="text-lg font-medium text-white mt-1">
+                                        {edu.institutionUrl ? (
+                                          <a 
+                                            href={edu.institutionUrl} 
+                                            target="_blank" 
+                                            rel="noopener noreferrer" 
+                                            className="text-white hover:text-blue-400 transition-colors hover:underline"
+                                          >
+                                            {edu.institution}
+                                          </a>
+                                        ) : (
+                                          edu.institution
+                                        )}
+                                      </p>
+                                    </div>
+                                    <div className="text-right">
+                                      <p className="text-sm font-medium text-blue-400">
+                                      {edu.graduatedDate 
+                                          ? new Date(edu.graduatedDate) > new Date() 
+                                          ? `Expected Graduation: ${edu.graduatedDate}`
+                                          : `Graduated: ${edu.graduatedDate}`
+                                          : 'Graduation Date N/A'
+                                      }
+                                      </p>
+                                    </div>
+                                  </div>
                               </div>
                             </div>
-                            
                             <div className="space-y-2">
                               <p className="text-sm text-gray-400">{edu.location}</p>
                               {edu.gpa && edu.gpa !== '-' && (

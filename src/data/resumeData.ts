@@ -26,6 +26,7 @@ export const experiences: Experience[] = [
     title: "Software Engineer",
     company: "WebMD",
     companyUrl: "https://www.webmd.com",
+    logo: "webmd-logo.jpg",
     location: "FCT-Abuja, NG",
     startDate: "Nov 2024",
     endDate: "till date",
@@ -34,6 +35,20 @@ export const experiences: Experience[] = [
       "Optimized performance and implemented scalable architectures"
     ],
     technologies: ["Drupal","C#", "PHP",".NET", "Vue", "FastAPI", "Apache Solr", "ELK Stack", "Node.js", "RabbitMQ", "Git", "Docker","Linux"]
+  },
+  {
+    title: "National Youth Service Corps (NYSC) Software Developer",
+    company: "Startup Kano",
+    companyUrl: "https://www.startupkano.com",
+    logo: "startup-kano.jpg",
+    location: "Kano, NG",
+    startDate: "April 2024",
+    endDate: "April 2025",
+    description: [
+      "One year mandatory service in Nigeria, where I contributed to various software development projects, gaining hands-on experience in community management",
+    ],
+    technologies: ["PHP", "JavaScript", "HTML", "CSS", "MySQL", "Git"]
+
   }
 ];
 
@@ -42,6 +57,7 @@ export const education: Education[] = [
     degree: "MS Cyber Security and Digital Forensics",
     institution: "Nigerian Defence Academy",
     institutionUrl: "https://www.nda.edu.ng",
+    logo: "National_Defence_Academy_NDA.png",
     location: "Kaduna, NG",
     graduatedDate: "2027",
     gpa: "-",
@@ -50,6 +66,7 @@ export const education: Education[] = [
     degree: "BS Cyber Security",
     institution: "Nigerian Army University Biu",
     institutionUrl: "https://naub.edu.ng",
+    logo: "nigerianArmy.png",
     location: "Biu, NG",
     graduatedDate: "2024",
     gpa: "4.53",
@@ -59,15 +76,15 @@ export const education: Education[] = [
 export const skills: Skill[] = [
   {
     category: "Languages",
-    skills: ["c#", "PHP", "Python", "JavaScript", "SQL"],
+    skills: ["C#", "PHP", "Python", "JavaScript", "SQL"],
   },
   {
     category: "Framework", 
-    skills: ["Node.js", "Vue", "Next.js", "dotnet", "FastAPI"],
+    skills: ["Node.js", "Vue", "Next.js", ".NET", "Drupal", "Laravel", "FastAPI","WordPress"],
   },
   {
-    category: "Database",
-    skills: ["Firestore", "Supabase", "PostgreSQL", "Apache Solr"],
+    category: "Data",
+    skills: ["Firestore", "Supabase", "PostgreSQL", "Apache Solr", "Kibana", "Grafana"],
   },
   {
     category: "Developer Tools",
@@ -75,7 +92,7 @@ export const skills: Skill[] = [
   },
   {
     category: "CS Fundamentals",
-    skills: ["Data Structure and Algorithm", "System Design", "Microservice Architecture", "OOP"]
+    skills: ["DevOps", "Agile Scrum","Data Structure and Algorithm", "System Design", "Microservice Architecture", "OOP"]
   }
 ];
 
@@ -89,6 +106,11 @@ export const achievements: Achievement[] = [
     title: "Academic Excellence",
     description: "Graduated with 4.53/5.00 CGPA in Bachelor's Cyber Security program at Nigerian Army University Biu, ranking in the top 10% of the faculty",
     date: "2024"
+  },
+  {
+    title: "Google Developer Student Club Leadership",
+    description: "Led a Google Developer Student Club, fostering a culture of innovation and learning at Nigerian Army University Biu",
+    date: "2022"
   }
 ];
 
