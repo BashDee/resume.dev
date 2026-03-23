@@ -6,6 +6,7 @@ import { Card, CardHeader, CardContent, CardTitle } from '@/components/ui/Card';
 
 const Resume: React.FC = () => {
   const [activeSection, setActiveSection] = useState<string>('about');
+  const [isSidebarOpen, setIsSidebarOpen] = useState<boolean>(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -43,9 +44,49 @@ const Resume: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-navy-950 to-navy-900">
+      {/* Mobile Header with Hamburger Menu */}
+      <div className="lg:hidden fixed top-0 left-0 right-0 z-50 bg-navy-800/95 backdrop-blur-sm border-b border-navy-700/50 p-4">
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <img 
+              src="profile.jpg" 
+              alt={personalInfo.name}
+              className="w-8 h-8 rounded-full object-cover border border-blue-500"
+            />
+            <div>
+              <h1 className="text-lg font-bold text-white">{personalInfo.name}</h1>
+              <p className="text-sm text-blue-400">{personalInfo.title}</p>
+            </div>
+          </div>
+          <button
+            onClick={() => setIsSidebarOpen(!isSidebarOpen)}
+            className="p-2 text-white hover:bg-navy-700 rounded-lg transition-colors"
+            aria-label="Toggle menu"
+          >
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              {isSidebarOpen ? (
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              ) : (
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              )}
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      {/* Mobile Overlay */}
+      {isSidebarOpen && (
+        <div 
+          className="lg:hidden fixed inset-0 bg-black/50 z-40"
+          onClick={() => setIsSidebarOpen(false)}
+        />
+      )}
+
       <div className="flex">
         {/* Fixed Sidebar */}
-        <div className="w-80 min-h-screen bg-navy-800/30 backdrop-blur-sm border-r border-navy-700/50 p-6 fixed">
+        <div className={`w-80 min-h-screen bg-navy-800/30 backdrop-blur-sm border-r border-navy-700/50 p-6 fixed z-50 transition-transform duration-300 ease-in-out lg:translate-x-0 ${
+          isSidebarOpen ? 'translate-x-0' : '-translate-x-full'
+        } lg:block`}>
           {/* Profile Section */}
           <div className="text-center mb-8">
             <img 
@@ -92,6 +133,7 @@ const Resume: React.FC = () => {
               <a
                 key={section.id}
                 href={`#${section.id}`}
+                onClick={() => setIsSidebarOpen(false)}
                 className={`block w-full text-left p-3 rounded-lg transition-all duration-200 ${
                   activeSection === section.id
                     ? 'bg-blue-600/20 text-blue-400 border-l-4 border-blue-400'
@@ -105,7 +147,7 @@ const Resume: React.FC = () => {
         </div>
 
         {/* Main Content - Scrollable */}
-        <div className="flex-1 ml-80 p-8 overflow-y-auto">
+        <div className="flex-1 lg:ml-80 p-4 lg:p-8 pt-20 lg:pt-8 overflow-y-auto">
           <div className="max-w-4xl mx-auto space-y-12">
             
             {/* About Section */}
