@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { personalInfo, aboutText, experiences, education, skills, achievements, projects, publications } from '@/data/resumeData';
 import { Card, CardHeader, CardContent, CardTitle } from '@/components/ui/Card';
+import { PDFExportButton } from '@/components/PDFExportButton';
 
 const Resume: React.FC = () => {
   const [activeSection, setActiveSection] = useState<string>('about');
@@ -39,7 +40,8 @@ const Resume: React.FC = () => {
     { id: 'skills', label: 'Skills' },
     { id: 'achievements', label: 'Achievements' },
     { id: 'publications', label: 'Publications' },
-    { id: 'projects', label: 'Projects' }
+    { id: 'projects', label: 'Projects' },
+    { id: 'pdf-export', label: 'Export PDF' }
   ];
 
   return (
@@ -486,6 +488,9 @@ const Resume: React.FC = () => {
                 ))}
               </div>
             </section>
+
+            {/* PDF Export Section */}
+            <PDFExportButton />
 
           </div>
         </div>

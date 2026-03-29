@@ -5,21 +5,19 @@ export const personalInfo: PersonalInfo = {
   title: "Software Developer",
   email: "danjumabashir58@gmail.com",
   phone: "+234 (081) 2020-7805",
-  location: "Nigeria",
+  location: "Nigeria (Open to Global Remote)",
   github: "https://github.com/BashDee",
   linkedin: "https://linkedin.com/in/bashir-danjuma",
-  website: "https://bashirdanjuma.dev"
+  // website: "https://bashirdanjuma.dev"
 };
 
-export const aboutText = `I'm a Software Engineer at WebMD with a unique blend of practical development experience and academic research expertise. Currently pursuing my Master's degree in Cyber Security and Digital Forensics at Nigerian Defence Academy, I bring a security-first mindset to software development while building scalable healthcare platforms.
+export const aboutText = `I'm a Software Developer with hands-on experience building scalable backend systems for high-traffic platforms. Currently at WebMD, I develop production backend infrastructure for ASPEN CMS (serving millions of global users) using .NET, Drupal, and development tools — while pursuing my Master's in Cyber Security and Digital Forensics.
 
-With a stellar academic background (4.53/5.00 CGPA, top 10% of faculty), I've successfully transitioned from cybersecurity research to full-stack development. At WebMD, I collaborate with an 8-person team building healthcare platforms ASPEN CMS, using Drupal and .NET, serving millions of users globally.
+I thrive in fast-moving environments: optimizing performance, designing APIs, integrating data pipelines, and experimenting with AI tools to accelerate development.
 
-My technical expertise spans the full development stack: C#/.NET and PHP for backend systems, Vue.js for modern frontend experiences, and cloud technologies including Docker, Apache Solr, and ELK Stack. I'm passionate about the intersection of cybersecurity and software engineering, ensuring applications are both performant and secure.
+My expertise includes building and integrating RESTful APIs, structuring complex relational data, implementing message queues, and ensuring secure, performant systems. I'm particularly passionate about purpose-driven tech that breaks barriers — from making healthcare information accessible (HIPAA compliant) to exploring emerging AI applications.
 
-As a published researcher in AI ethics and cybersecurity, I bring academic rigor to practical problem-solving. My recent publication in the Journal of Cyber Security explores the ethical implications of AI-driven security systems, reflecting my commitment to responsible technology development.
-
-I thrive on building robust, scalable solutions that make healthcare information more accessible while maintaining the highest security standards (HIPAA, GDPR, etc). When I'm not coding, you'll find me exploring emerging technologies in AI and cybersecurity, contributing to open-source projects, or mentoring fellow developers in the intersection of security and software engineering.`;
+I actively use AI tools like Claude in my daily workflow for story creation, rapid prototyping, code generation, refactoring, and design ideation. I'm excited to bring this blend of production backend ownership and AI curiosity.`;
 
 export const experiences: Experience[] = [
   {
@@ -29,26 +27,28 @@ export const experiences: Experience[] = [
     logo: "webmd-logo.jpg",
     location: "FCT-Abuja, NG",
     startDate: "Nov 2024",
-    endDate: "till date",
+    endDate: "Present",
     description: [
-      "Building healthcare content platform with regionally diverse team of engineers, product managers, and QA specialists",
-      "Optimized performance and implemented scalable architectures"
+      "Built and optimized backend infrastructure for ASPEN CMS healthcare content platform, serving 10M+ monthly users in a lean 8-person cross-functional team",
+      "Designed and integrated RESTful APIs and data processing pipelines, reducing latency by 1.2s and improving system scalability",
+      "Implemented message queuing with RabbitMQ and search/indexing with Apache Solr, enabling efficient content matching and retrieval across diverse datasets",
+      "Collaborated on full-stack features using C#/.NET, PHP, Drupal, Vue.js, and Docker — ensuring HIPAA compliant, high-availability systems"
     ],
-    technologies: ["Drupal","C#", "PHP",".NET", "Vue", "FastAPI", "Apache Solr", "ELK Stack", "Node.js", "RabbitMQ", "Git", "Docker","Linux"]
+    technologies: ["Drupal", "C#", ".NET", "PHP", "Vue", "FastAPI", "Apache Solr", "ELK Stack", "Node.js", "RabbitMQ", "Git", "Docker", "Linux", "API Integration"]
   },
   {
     title: "National Youth Service Corps (NYSC) Software Developer",
-    company: "Startup Kano",
+    company: "Startup Kano Center for Innovation and Development",
     companyUrl: "https://www.startupkano.com",
     logo: "startup-kano.jpg",
     location: "Kano, NG",
     startDate: "April 2024",
     endDate: "April 2025",
     description: [
-      "One year mandatory service in Nigeria, where I contributed to various software development projects, gaining hands-on experience in community management",
+      "Joined early-stage startup environment during mandatory national service; built and maintained full-stack features from scratch in a fast-paced, resource-constrained setting",
+      "Contributed to product iteration and community management tools, shipping features quickly while adapting to evolving requirements"
     ],
     technologies: ["PHP", "JavaScript", "HTML", "CSS", "MySQL", "Git"]
-
   }
 ];
 
@@ -69,47 +69,47 @@ export const education: Education[] = [
     logo: "nigerianArmy.png",
     location: "Biu, NG",
     graduatedDate: "2024",
-    gpa: "4.53",
+    gpa: "4.53 / 5.00 (Top 10% of Faculty)",
   }
 ];
 
 export const skills: Skill[] = [
   {
     category: "Languages",
-    skills: ["C#", "PHP", "Python", "JavaScript", "SQL"],
+    skills: ["C#", "PHP", "Python", "JavaScript", "TypeScript", "SQL"],
   },
   {
-    category: "Framework", 
-    skills: ["Node.js", "Vue", "Next.js", ".NET", "Drupal", "Laravel", "FastAPI","WordPress"],
+    category: "Frameworks & Backend",
+    skills: ["Node.js", ".NET", "Drupal", "Laravel", "FastAPI", "Express", "RESTful APIs", "Microservices"],
   },
   {
-    category: "Data",
-    skills: ["Firestore", "Supabase", "PostgreSQL", "Apache Solr", "Kibana", "Grafana"],
+    category: "Data & Databases",
+    skills: ["PostgreSQL", "MySQL", "Firestore", "Supabase", "Apache Solr", "ELK Stack (Kibana)", "Complex Relational Modeling"],
   },
   {
-    category: "Developer Tools",
-    skills: ["Postman", "Git", "Docker", "VSCode", "Visual Studio", "ClaudeCode", "Asterix", "Builder.io", "RabbitMQ"]
+    category: "AI & Tools",
+    skills: ["LLM Integration (Claude, prompt engineering)", "ClaudeCode", "TensorFlow", "OpenCV", "Docker", "RabbitMQ", "Git", "Postman"]
   },
   {
-    category: "CS Fundamentals",
-    skills: ["DevOps", "Agile Scrum","Data Structure and Algorithm", "System Design", "Microservice Architecture", "OOP"]
+    category: "DevOps & Fundamentals",
+    skills: ["DevOps", "Agile Scrum", "System Design", "Data Structures & Algorithms", "OOP", "Secure Architecture"]
   }
 ];
 
 export const achievements: Achievement[] = [
   {
-    title: "High-Traffic Application Optimization",
-    description: "Successfully optimized External Indexer application serving 10M+ users, achieving 35% bundle size reduction and 1.2s latency improvement",
+    title: "High-Traffic Platform Optimization",
+    description: "Optimized External Indexer application serving 10M+ users at WebMD, achieving 35% bundle size reduction, 1.2s latency improvement with enhanced content searching capabilities",
     date: "2025"
   },
   {
-    title: "Academic Excellence",
-    description: "Graduated with 4.53/5.00 CGPA in Bachelor's Cyber Security program at Nigerian Army University Biu, ranking in the top 10% of the faculty",
+    title: "Academic Excellence & Research",
+    description: "Graduated with 4.53/5.00 CGPA (top 10%) and co-authored publication on Ethical Implications of AI-Driven Security Systems",
     date: "2024"
   },
   {
     title: "Google Developer Student Club Leadership",
-    description: "Led a Google Developer Student Club, fostering a culture of innovation and learning at Nigerian Army University Biu",
+    description: "Led GDSC chapter, organizing workshops on software development, cybersecurity, and emerging AI tools for 100+ students",
     date: "2022"
   }
 ];
@@ -117,35 +117,34 @@ export const achievements: Achievement[] = [
 export const projects: Project[] = [
   {
     title: "Student Course Registration Management System",
-    description: "Designed and implemented a Python-based system for managing student courses",
-    technologies: ["PHP Vanilla", "HTML", "JavaScript", "SQL"],
+    description: "Full-stack web application for managing student courses with complex relational data, user roles, and real-time features (live in production/use)",
+    technologies: ["PHP", "JavaScript", "MySQL", "HTML/CSS", "API Development"],
     github: "https://github.com/BashDee/stdmgt",
     highlights: [
-      "Full-stack web application for course management",
-      "User authentication and role-based access control",
-      "Database design for student and course relationships",
-      "Responsive UI design for mobile and desktop"
+      "Designed backend APIs and database schema handling many-to-many relationships between students, courses, and schedules",
+      "Implemented authentication, authorization, and scalable query optimization",
+      "Built responsive frontend with dynamic matching and registration logic"
     ]
   },
   {
-    title: "Development of Facial Recognition-Based Driver Identification",
-    description: "Leveraged machine learning algorithms to build a robust driver authentication system",
-    technologies: ["Python", "TensorFlow", "OpenCV", "Git", "Docker"],
+    title: "Facial Recognition-Based Driver Identification System",
+    description: "Machine learning-powered authentication system with real-time processing and deployment",
+    technologies: ["Python", "TensorFlow", "OpenCV", "Docker", "Git"],
     github: "#",
     highlights: [
-      "Real-time face detection and recognition system",
-      "Machine learning model training and optimization",
-      "Computer vision preprocessing pipeline",
-      "Dockerized deployment for scalability"
+      "Developed computer vision pipeline and model integration for secure identification",
+      "Containerized deployment for scalable, production-ready use",
+      "Explored AI ethics considerations in biometric security applications"
     ]
   },
-    {
+  {
     title: "Personalised Finance Management App",
-    description: "",
-    technologies: ["TypeScript", "SupaBase", "OpenCV", "Git", "Docker"],
+    description: "Full-stack application with personalized recommendations and data processing (built with modern tools)",
+    technologies: ["TypeScript", "Firebase", "Supabase", "Docker", "Git"],
     github: "https://github.com/BashDee/pers-builder.io",
     highlights: [
-
+      "Structured user data models for personalized matching and insights",
+      "Integrated backend services with potential for AI-driven recommendations"
     ]
   }
 ];
@@ -156,7 +155,7 @@ export const publications: Publication[] = [
     authors: ["Hossana Maghiri Sufficient", "Abdulazeez Murtala Mohammed", "Bashir Danjuma"],
     journal: "Journal of Cyber Security",
     year: "2025",
-    description: "We established four principal ethical challenges: algorithmic bias, privacy-preserving tensions, accountability gaps, and the dual-use dilemma, and demonstrated how AI’s efficiency gains can nonetheless amplify inequities in under-resourced settings such as rural clinics and small enterprises.",
+    description: "Established four principal ethical challenges in AI-driven security systems and proposed governance frameworks, with implications for equitable tech deployment in under-resourced settings.",
     type: "journal",
     url: "https://example.com/publication1",
     doi: "10.32604/jcs.2025.066312"
