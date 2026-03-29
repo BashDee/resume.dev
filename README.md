@@ -1,12 +1,13 @@
 # Resume Portfolio
 
-A professional resume website built with Next.js, TypeScript, and Tailwind CSS, inspired by modern design principles.
+A professional resume website built with Next.js, TypeScript, and Tailwind CSS, featuring PDF export functionality.
 
 ## Features
 
 - **Modern Design**: Clean, professional layout with dark theme
 - **Responsive**: Optimized for mobile and desktop viewing
 - **Interactive Navigation**: Smooth transitions between sections
+- **PDF Export**: Floating button with modal for customizable PDF generation
 - **Professional Sections**:
   - About
   - Experience
@@ -14,13 +15,56 @@ A professional resume website built with Next.js, TypeScript, and Tailwind CSS, 
   - Skills
   - Achievements
   - Projects
+  - Publications
 
 ## Technology Stack
 
 - **Frontend**: Next.js 16.2.1 with TypeScript
 - **Styling**: Tailwind CSS with custom navy color palette
-- **Icons**: Custom emoji icons and Unicode symbols
+- **PDF Generation**: jsPDF with professional template styling
+- **Icons**: Clean text-based labels for print compatibility
 - **Deployment**: Static site generation ready
+
+## PDF Export Feature
+
+The resume includes a sophisticated PDF export system:
+- **Floating Button**: Always accessible in bottom-right corner
+- **Section Selection**: Modal popup to choose which sections to include
+- **Professional Styling**: Clean white background optimized for printing and ATS systems
+- **Smart Naming**: Auto-generated filename with date: `{Name}-CV-{YYYY-MM-DD}.pdf`
+- **Print-Ready**: Proper spacing, margins, and typography for professional appearance
+
+## Usage
+
+1. **View Resume**: Navigate through sections using the sidebar
+2. **Export PDF**: Click the floating blue button in the bottom-right corner
+3. **Customize**: Select which sections to include in your PDF export
+4. **Download**: Generate and download your professional CV
+
+## Getting Started
+
+```bash
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+
+# Build for production
+npm run build
+
+# Start production server
+npm start
+```
+
+Visit http://localhost:3000 to view the resume website.
+
+## Development
+
+- **Live Reload**: Development server automatically reloads on changes
+- **TypeScript**: Full type safety throughout the application
+- **ESLint**: Code quality and consistency enforcement
+- **Tailwind CSS**: Utility-first CSS framework with custom configuration
 
 ## Project Structure
 
@@ -35,13 +79,15 @@ resume.dev/
 │   │   ├── ui/
 │   │   │   ├── Button.tsx   # Reusable button component
 │   │   │   └── Card.tsx     # Card components
-│   │   └── Resume.tsx       # Main resume component
+│   │   ├── Resume.tsx       # Main resume component
+│   │   └── PDFExportButton.tsx  # Floating PDF export with modal
 │   ├── data/
 │   │   └── resumeData.ts    # Resume content data
-│   ├── types/
-│   │   └── resume.ts        # TypeScript interfaces
-│   └── lib/
-│       └── utils.ts         # Utility functions
+│   ├── lib/
+│   │   ├── utils.ts         # Utility functions
+│   │   └── pdfGenerator.ts  # PDF generation logic
+│   └── types/
+│       └── resume.ts        # TypeScript interfaces
 ├── .github/
 │   └── copilot-instructions.md
 ├── package.json
