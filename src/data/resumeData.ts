@@ -157,7 +157,7 @@ export const publications: Publication[] = [
     year: "2025",
     description: "Established four principal ethical challenges in AI-driven security systems and proposed governance frameworks, with implications for equitable tech deployment in under-resourced settings.",
     type: "journal",
-    url: "https://example.com/publication1",
+    url: "https://www.researchgate.net/publication/393667257_Ethical_Implications_of_AI-Driven_Ethical_Hacking_A_Systematic_Review_and_Governance_Framework",
     doi: "10.32604/jcs.2025.066312"
   }
 ];
