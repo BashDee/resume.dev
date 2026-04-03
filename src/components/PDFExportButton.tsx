@@ -218,7 +218,7 @@ export const PDFExportButton: React.FC = () => {
                   <Button
                     onClick={handleExport}
                     variant="primary"
-                    className={`flex-1 ${isExporting ? 'opacity-50 cursor-not-allowed' : ''}`}
+                    className="flex-1"
                     disabled={isExporting}
                   >
                     {isExporting ? (
