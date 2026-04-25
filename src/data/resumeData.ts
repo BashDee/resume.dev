@@ -3,8 +3,8 @@ import { PersonalInfo, Experience, Education, Skill, Achievement, Project, Publi
 export const personalInfo: PersonalInfo = {
   name: "Bashir Danjuma",
   title: "Software Developer",
-  email: "danjumabashir58@gmail.com",
-  phone: "+234 (081) 2020-7805",
+  email: "",
+  phone: "",
   location: "Nigeria (Open to Global Remote)",
   github: "https://github.com/BashDee",
   linkedin: "https://linkedin.com/in/bashir-danjuma",
