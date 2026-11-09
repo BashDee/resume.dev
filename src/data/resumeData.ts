@@ -1,4 +1,4 @@
-import { PersonalInfo, Experience, Education, Skill, Achievement, Project, Publication } from '../types/resume';
+import { PersonalInfo, Experience, Education, Skill, Achievement, Project, Publication, Certification } from '../types/resume';
 
 export const personalInfo: PersonalInfo = {
   name: "Bashir Danjuma",
@@ -84,11 +84,11 @@ export const skills: Skill[] = [
   },
   {
     category: "Data & Databases",
-    skills: ["PostgreSQL", "MySQL", "Firestore", "Supabase", "Apache Solr", "ELK Stack (Kibana)", "Complex Relational Modeling"],
+    skills: ["PostgreSQL", "MySQL", "Firestore", "Supabase", "Apache Solr", "ELK Stack (Kibana)"],
   },
   {
     category: "AI & Tools",
-    skills: ["LLM Integration (Claude, prompt engineering)", "ClaudeCode", "TensorFlow", "OpenCV", "Docker", "RabbitMQ", "Git", "Postman"]
+    skills: ["LLM Integration (Claude, prompt engineering)", "ClaudeCode", "Docker", "RabbitMQ", "Git", "Postman"]
   },
   {
     category: "DevOps & Fundamentals",
@@ -159,5 +159,14 @@ export const publications: Publication[] = [
     type: "journal",
     url: "https://www.researchgate.net/publication/393667257_Ethical_Implications_of_AI-Driven_Ethical_Hacking_A_Systematic_Review_and_Governance_Framework",
     doi: "10.32604/jcs.2025.066312"
+  }
+];
+
+export const certifications: Certification[] = [
+  {
+    title: "Claude Certified Architect - Foundations",
+    issuer: "Anthropic",
+    badgeId: "66ff4b2e-3a92-4c24-9144-ee606f9f8d38",
+    date: "2026"
   }
 ];

@@ -6,7 +6,8 @@ import {
   Skill,
   Achievement,
   Project,
-  Publication
+  Publication,
+  Certification
 } from '../types/resume';
 
 // PDF styling constants for professional template
@@ -39,6 +40,7 @@ export interface SelectedSections {
   achievements: boolean;
   projects: boolean;
   publications: boolean;
+  certifications: boolean;
 }
 
 interface PDFData {
@@ -50,6 +52,7 @@ interface PDFData {
   achievements: Achievement[];
   projects: Project[];
   publications: Publication[];
+  certifications: Certification[];
 }
 
 export class PDFGenerator {
@@ -353,6 +356,10 @@ export class PDFGenerator {
     if (selectedSections.achievements) {
       this.generateAchievementsSection(data.achievements);
     }
+
+    if (selectedSections.certifications) {
+      this.generateCertificationsSection(data.certifications);
+    }
     
     if (selectedSections.projects) {
       this.generateProjectsSection(data.projects);
@@ -365,6 +372,35 @@ export class PDFGenerator {
 
   public downloadPDF(filename: string): void {
     this.pdf.save(filename);
+  }
+
+  private generateCertificationsSection(certifications: Certification[]): void {
+    this.addSectionHeader('Certifications');
+
+    certifications.forEach((cert, index) => {
+      this.checkPageBreak(14);
+
+      this.addText(cert.title, PDF_CONFIG.margin, PDF_CONFIG.fonts.subheading.size, 'bold', PDF_CONFIG.colors.secondary);
+      this.currentY += PDF_CONFIG.lineHeight;
+
+      const meta = cert.date ? `${cert.issuer} (${cert.date})` : cert.issuer;
+      this.addText(meta, PDF_CONFIG.margin, PDF_CONFIG.fonts.body.size, 'normal', PDF_CONFIG.colors.text);
+      this.currentY += PDF_CONFIG.lineHeight;
+
+      const host = cert.badgeHost ?? 'https://www.credly.com';
+      this.addWrappedText(
+        `Verify: ${host}/badges/${cert.badgeId}/public_url`,
+        PDF_CONFIG.margin,
+        this.contentWidth,
+        PDF_CONFIG.fonts.small.size,
+        'normal',
+        PDF_CONFIG.colors.light
+      );
+
+      if (index < certifications.length - 1) {
+        this.currentY += PDF_CONFIG.itemSpacing;
+      }
+    });
   }
 }
 

@@ -1,9 +1,10 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { personalInfo, aboutText, experiences, education, skills, achievements, projects, publications } from '@/data/resumeData';
+import { personalInfo, aboutText, experiences, education, skills, achievements, projects, publications, certifications } from '@/data/resumeData';
 import { Card, CardHeader, CardContent, CardTitle } from '@/components/ui/Card';
 import { PDFExportButton } from '@/components/PDFExportButton';
+import { CredlyBadge } from '@/components/CredlyBadge';
 
 const Resume: React.FC = () => {
   const [activeSection, setActiveSection] = useState<string>('about');
@@ -39,6 +40,7 @@ const Resume: React.FC = () => {
     { id: 'education', label: 'Education' },
     { id: 'skills', label: 'Skills' },
     { id: 'achievements', label: 'Achievements' },
+    { id: 'certifications', label: 'Certifications' },
     { id: 'publications', label: 'Publications' },
     { id: 'projects', label: 'Projects' },
     { id: 'pdf-export', label: 'Export PDF' }
@@ -362,6 +364,45 @@ const Resume: React.FC = () => {
                     <CardContent>
                       <p className="text-gray-300 text-sm leading-relaxed">{achievement.description}</p>
                     </CardContent>
+                  </Card>
+                ))}
+              </div>
+            </section>
+
+            {/* Certifications Section */}
+            <section id="certifications">
+              <div className="mb-6">
+                <h2 className="text-3xl font-bold text-white">Certifications</h2>
+                <div className="w-20 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mt-2"></div>
+              </div>
+              <div className="space-y-6">
+                {certifications.map((cert, index) => (
+                  <Card key={`cert-${cert.badgeId}-${index}`}>
+                    <CardHeader>
+                      <div className="flex flex-col sm:flex-row sm:items-center gap-6">
+                        <CredlyBadge
+                          badgeId={cert.badgeId}
+                          host={cert.badgeHost}
+                          width={cert.width}
+                          height={cert.height}
+                        />
+                        <div className="flex-1">
+                          <CardTitle className="text-blue-400">{cert.title}</CardTitle>
+                          <p className="text-lg font-medium text-gray-300 mt-1">{cert.issuer}</p>
+                          {cert.date && (
+                            <p className="text-sm text-gray-400 mt-1">{cert.date}</p>
+                          )}
+                          <a
+                            href={`${cert.badgeHost ?? 'https://www.credly.com'}/badges/${cert.badgeId}/public_url`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-block mt-3 text-sm text-blue-400 hover:text-blue-300 hover:underline transition-colors"
+                          >
+                            Verify on Credly →
+                          </a>
+                        </div>
+                      </div>
+                    </CardHeader>
                   </Card>
                 ))}
               </div>

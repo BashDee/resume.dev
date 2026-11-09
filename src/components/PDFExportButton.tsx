@@ -10,6 +10,7 @@ import {
   education,
   skills,
   achievements,
+  certifications,
   projects,
   publications
 } from '../data/resumeData';
@@ -20,6 +21,7 @@ const SECTION_LABELS = {
   education: 'Education',
   skills: 'Technical Skills',
   achievements: 'Key Achievements',
+  certifications: 'Certifications',
   projects: 'Notable Projects',
   publications: 'Publications'
 };
@@ -31,6 +33,7 @@ export const PDFExportButton: React.FC = () => {
     education: true,
     skills: true,
     achievements: true,
+    certifications: true,
     projects: true,
     publications: true
   });
@@ -55,6 +58,7 @@ export const PDFExportButton: React.FC = () => {
       education: newState,
       skills: newState,
       achievements: newState,
+      certifications: newState,
       projects: newState,
       publications: newState
     });
@@ -79,6 +83,7 @@ export const PDFExportButton: React.FC = () => {
         education,
         skills,
         achievements,
+        certifications,
         projects,
         publications
       };

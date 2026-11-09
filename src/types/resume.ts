@@ -62,3 +62,13 @@ export interface Publication {
   description: string;
   type: 'journal' | 'conference' | 'workshop' | 'preprint' | 'other';
 }
+
+export interface Certification {
+  title: string;
+  issuer: string;
+  badgeId: string;        // Credly share-badge id
+  badgeHost?: string;     // default https://www.credly.com
+  width?: number;         // default 150
+  height?: number;        // default 270
+  date?: string;
+}
